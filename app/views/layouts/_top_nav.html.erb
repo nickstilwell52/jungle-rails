@@ -59,6 +59,19 @@
             <li><%= link_to 'Categories', [:admin, :categories], class: "nav-link" %></li>
           </ul>
         </li>
+        <% if current_user %>
+          <li class="nav-link">Hello <%= current_user.first_name %></li>
+          <li class="nav-item">
+            <%= link_to 'Logout', '/logout', class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Login', '/login', class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Signup', '/signup', class: "nav-link" %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to 'About', about_path, class: "nav-link" %>
         </li>
